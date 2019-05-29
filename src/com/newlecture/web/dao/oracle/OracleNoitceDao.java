@@ -60,6 +60,9 @@ public class OracleNoitceDao implements NoticeDao{
 		}
 		
 
+		
+		
+		
 		rs.close();
 		st.close();
 		con.close();
