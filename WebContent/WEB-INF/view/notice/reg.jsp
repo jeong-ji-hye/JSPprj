@@ -147,13 +147,17 @@
 					</ol>
 				</section>
 				<section>
-					<form method="post" action="reg">
+					<form method="post" action="reg" enctype="multipart/form-data">
 						<h1>공지사항 내용</h1>
 						<table>
 							<tbody>
 								<tr>
 									<th>제목</th>
 									<td><input value="${notice.title}" name="title"></td>
+								</tr>
+								<tr>
+									<th>첨부파일</th>
+									<td><input type="file" name="file"></td>
 								</tr>
 								<tr>
 									<th>내용</th>
