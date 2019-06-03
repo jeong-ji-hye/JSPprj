@@ -7,9 +7,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
     /* NoticeDao noticeDao = new FileNoticeDao();
     List<NoticeView> notices = noticeDao.getList();
     //MVC
@@ -34,67 +34,66 @@
     //여기까지가------
     //} */
     %>
-    <!DOCTYPE html>
-<html lang="en" style="font-size:10px">
+<!DOCTYPE html>
+<html lang="en" style="font-size: 10px">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <!-- 스타일 속성(X)-> 외부파일에 따로 두기. 불러옴. import방법도 있음.(로딩시간 걸릴수도있음.-->
-    <!-- <link rel="stylesheet" href="../CSS/reset.css" type="text/css"> -->
-    <link rel="stylesheet" href="../CSS/style.css" type="text/css">
+<meta charset="UTF-8">
+<title>Document</title>
+<!-- 스타일 속성(X)-> 외부파일에 따로 두기. 불러옴. import방법도 있음.(로딩시간 걸릴수도있음.-->
+<!-- <link rel="stylesheet" href="../CSS/reset.css" type="text/css"> -->
+<link rel="stylesheet" href="../CSS/style.css" type="text/css">
 </head>
 
 <body>
 
 
-    <header id="header">
-        <div class="content-box">
-            <h1 id="logo">뉴렉처 온라인</h1>
-            <section>
-                <h1 class="d-none">머릿말</h1>
+	<header id="header">
+		<div class="content-box">
+			<h1 id="logo">뉴렉처 온라인</h1>
+			<section>
+				<h1 class="d-none">머릿말</h1>
 
-                <nav id="main-menu">
-                    <h1 class="d-none">메인메뉴</h1>
-                    <ul>
-                        <li><a href="">학습가이드</a></li>
-                        <li><a href="">강좌선택</a></li>
-                        <li><a href="">AnswerIs</a></li>
-                    </ul>
-                </nav>
+				<nav id="main-menu">
+					<h1 class="d-none">메인메뉴</h1>
+					<ul>
+						<li><a href="">학습가이드</a></li>
+						<li><a href="">강좌선택</a></li>
+						<li><a href="">AnswerIs</a></li>
+					</ul>
+				</nav>
 
-                <section id="lecture-search-form">
-                    <h1 class="d-none">강좌검색 폼</h1>
-                    <form>
-                        <label>과정검색</label>
-                        <input type="text">
-                        <input type="submit" value="검색">
-                    </form>
-                </section>
+				<section id="lecture-search-form">
+					<h1 class="d-none">강좌검색 폼</h1>
+					<form>
+						<label>과정검색</label> <input type="text"> <input
+							type="submit" value="검색">
+					</form>
+				</section>
 
-                <nav id="member-menu">
-                    <h1 class="d-none">회원메뉴</h1>
-                    <ul>
-                        <li>HOME</li>
-                        <li>로그인</li>
-                        <li>회원가입</li>
-                    </ul>
-                </nav>
+				<nav id="member-menu">
+					<h1 class="d-none">회원메뉴</h1>
+					<ul>
+						<li>HOME</li>
+						<li>로그인</li>
+						<li>회원가입</li>
+					</ul>
+				</nav>
 
-                <nav id="direct-menu">
-                    <h1 class="d-none">자주 사용하는 메뉴</h1>
-                    <ul>
-                        <li>마이페이지</li>
-                        <li>고객센터</li>
-                    </ul>
-                    <nav>
-            </section>
-    </header>
-    </div>
-    <!-- visual block -->
-    <div id="visual">
-        <div class="content-box" style="position:relative">
-            <!-- <div class="test">
+				<nav id="direct-menu">
+					<h1 class="d-none">자주 사용하는 메뉴</h1>
+					<ul>
+						<li>마이페이지</li>
+						<li>고객센터</li>
+					</ul>
+					<nav>
+			</section>
+	</header>
+	</div>
+	<!-- visual block -->
+	<div id="visual">
+		<div class="content-box" style="position: relative">
+			<!-- <div class="test">
 
             </div>
             static 자동 relative static에서 얼마더 absolute 수동 fixed 고정 sticky
@@ -104,94 +103,97 @@
             <span>사진사진</span>
             <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHPHV0j5HE7nNGbRAmkdPqwLC8tVaQ5rp48ZgIQDa5yH6Qhm8"> -->
-        </div>
-    </div>
+		</div>
+	</div>
 
-    <!-- main block -->
-    <div id="body">
-        <!-- clear-fix 이제 안씀.-->
-        <div class="content-box">
-            <aside>
+	<!-- main block -->
+	<div id="body">
+		<!-- clear-fix 이제 안씀.-->
+		<div class="content-box">
+			<aside>
 
-                <h1 id="aside-title">고객센터</h1>
+				<h1 id="aside-title">고객센터</h1>
 
-                <nav id="customer-menu">
-                    <h1>고객센터메뉴</h1>
-                    <ul>
-                        <li><a herf="">공지사항</a></li>
-                        <li><a herf="">자주하는 질문</a></li>
-                        <li><a herf="">수강문의</a></li>
-                        <li><a herf="">이벤트</a></li>
-                    </ul>
-                </nav>
+				<nav id="customer-menu">
+					<h1>고객센터메뉴</h1>
+					<ul>
+						<li><a herf="">공지사항</a></li>
+						<li><a herf="">자주하는 질문</a></li>
+						<li><a herf="">수강문의</a></li>
+						<li><a herf="">이벤트</a></li>
+					</ul>
+				</nav>
 
-                <nav id="coworker">
-                    <h1>협력업체</h1>
-                    <ul>
-                        <li><a href="">노트펍스</a></li>
-                        <li><a href="">나무랩연구소</a></li>
-                        <li><a href="">한빛미디어</a></li>
-                    </ul>
-                </nav>
-            </aside>
+				<nav id="coworker">
+					<h1>협력업체</h1>
+					<ul>
+						<li><a href="">노트펍스</a></li>
+						<li><a href="">나무랩연구소</a></li>
+						<li><a href="">한빛미디어</a></li>
+					</ul>
+				</nav>
+			</aside>
 
-            <main>
-                <section>
-                <h1>공지사항</h1>
+			<main>
+			<section>
+				<h1>공지사항</h1>
 
-                <section id="breadcrumb">
-                    <h3 class="d-none">경로</h3>
-                    <ol>
-                        <li>home</li>
-                        <li>고객센터</li>
-                        <li>공지사항</li>
-                    </ol>
-                </section>
-                <section>
-                	<h1>공지사항 내용</h1>
-                	<table>
-                		<tbody>
-                		<tr>
-                			<th>제목</th>
-                			<td>${notice.title}</td>
-                		</tr>
-                		<tr>
-                			<th>작성일</th>
-                			<td>${notice.regDate}</td>
-                		</tr>
-                		<tr>
-                			<th>내용</th>
-                			<td>${notice.content}</td>
-                		</tr>
-                		</tbody>
-                	</table>
-                		<div>
-                			<a href="edit?id=${notice.id}">수정</a>
-                			<a href="del?id=${notice.id}">삭제</a>
-                		</div>
-                </section>
-                
-                <section>
-                   <h1></h1>
-                   <ul>
-                      <li><a href="detail?id=${prev.id}"><span>이전글</span>${prev.title}</a></li>
-                      <li><a href="detail?id=${next.id}"><span>다음글</span>${next.title}</a></li>
-                   </ul>
-                </section>
-                
+				<section id="breadcrumb">
+					<h3 class="d-none">경로</h3>
+					<ol>
+						<li>home</li>
+						<li>고객센터</li>
+						<li>공지사항</li>
+					</ol>
+				</section>
+				<section>
+					<h1>공지사항 내용</h1>
+					<table>
+						<tbody>
+							<tr>
+								<th>제목</th>
+								<td>${notice.title}</td>
+							</tr>
+							<tr>
+								<th>작성일</th>
+								<td>${notice.regDate}</td>
+							</tr>
+							<tr>
+								<th>첨부파일</th>
+								<td>
+								<c:forEach var="file" items="${noticeFiles}">
+								<a href="">${file.name}</a>
+								</c:forEach>
+								</td>
+							</tr>
+							<tr>
+								<th>내용</th>
+								<td>${notice.content}</td>
+							</tr>
+						</tbody>
+					</table>
+					<div>
+						<a href="edit?id=${notice.id}">수정</a> <a
+							href="del?id=${notice.id}">삭제</a>
+					</div>
+				</section>
 
-                
+				<section>
+					<h1></h1>
+					<ul>
+						<li><a href="detail?id=${prev.id}"><span>이전글</span>${prev.title}</a></li>
+						<li><a href="detail?id=${next.id}"><span>다음글</span>${next.title}</a></li>
+					</ul>
+				</section>
+			</main>
 
-   
-            </main>
+			<!-- <div style="clear:left;">막내</div> .clear-fix사용-->
+		</div>
+	</div>
 
-            <!-- <div style="clear:left;">막내</div> .clear-fix사용-->
-        </div>
-    </div>
-
-    <footer id="footer">
-        <div>
-            <!-- <h2>회사정보</h2>
+	<footer id="footer">
+		<div>
+			<!-- <h2>회사정보</h2>
 
     <div>
     <h3>소유권자 정보</h3>
@@ -247,8 +249,8 @@
         Copyright ⓒ newlecture.com 2012-2014 All Right Reserved. Contact admin@newlecture.com for more information
     </div>
 </div> -->
-        </div>
-    </footer>
+		</div>
+	</footer>
 </body>
 
 </html>

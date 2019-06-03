@@ -10,7 +10,7 @@ import java.util.List;
 
 import com.newlecture.web.entity.NoticeFile;
 
-public class NoticeFileDao implements com.newlecture.web.dao.NoticeFileDao {
+public class OracleNoticeFileDao implements com.newlecture.web.dao.NoticeFileDao {
 
 	@Override
 	public List<NoticeFile> getListByNoticeId(int noticeId) throws ClassNotFoundException, SQLException {
@@ -44,7 +44,7 @@ public class NoticeFileDao implements com.newlecture.web.dao.NoticeFileDao {
 	public int insert(NoticeFile noticeFile) throws ClassNotFoundException, SQLException {
 		int result = 0;
 		
-		String sql = "insert into notice_file(id,name,content,notice_id)"+"values(notice_seq.nextval,?,?)";
+		String sql = "insert into notice_file(id,name,notice_id)"+"values(notice_file_seq.nextval,?,?)";
 		
 		String url = "jdbc:oracle:thin:@192.168.0.15:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver"); 

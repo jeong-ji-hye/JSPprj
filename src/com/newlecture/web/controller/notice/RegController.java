@@ -15,8 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.newlecture.web.dao.NoticeDao;
+import com.newlecture.web.dao.NoticeFileDao;
 import com.newlecture.web.dao.oracle.OracleNoitceDao;
+import com.newlecture.web.dao.oracle.OracleNoticeFileDao;
 import com.newlecture.web.entity.Notice;
+import com.newlecture.web.entity.NoticeFile;
 
 @WebServlet("/notice/reg")
 //이것을 안하면 타이틀이 안읽어짐.
@@ -63,28 +66,27 @@ public class RegController extends HttpServlet {
 //		
 		
 //		규석오빠 코드
-//		File sameFile = new File(fileName);
-//		if(sameFile.exists())    { 
-//			
-//		int n = fileName.lastIndexOf(".");         
-//        String name = fileName.substring(0, n);
-//        String suffix = fileName.substring(n);         
-//
-//        int parenS = name.lastIndexOf("(");
-//        int parenE = name.lastIndexOf(")");
-//         
-//        String indexC = name.substring(parenS+1, parenE);
-//        
-//        int indexN = Integer.parseInt(indexC);         
-//         
-//         
-//           if (parenS == -1)
-//               fileName = name +"("+ 1 +")"+ suffix;
-//           else {
-//              indexN++;
-//               fileName = fileName.substring(0, parenS+1)+ indexN +")"+ suffix;
-//            }        
-//	}
+		File sameFile = new File(fileName);
+		if (sameFile.exists()) {
+
+			int n = fileName.lastIndexOf(".");
+			String name = fileName.substring(0, n);
+			String suffix = fileName.substring(n);
+
+			int parenS = name.lastIndexOf("(");
+			int parenE = name.lastIndexOf(")");
+
+			if (parenS == -1)
+				fileName = name + "(" + 1 + ")" + suffix;
+
+			else {
+				String indexC = name.substring(parenS + 1, parenE);
+
+				int indexN = Integer.parseInt(indexC);
+				indexN++;
+				fileName = fileName.substring(0, parenS + 1) + indexN + ")" + suffix;
+			}
+		}
 		
 		//진협이
 //		String tempPath = "D:\\tools\\photo.jpg";
@@ -133,7 +135,6 @@ public class RegController extends HttpServlet {
 		fis.close();
 		fos.close();
 		
-		NoticeDao noticeDao = new OracleNoitceDao();
 //		
 //		try {
 //			noticeDao.update(new Notice(id,title,content,"",null,0 ));
@@ -155,9 +156,22 @@ public class RegController extends HttpServlet {
 	//	notice.setId(id);
 		notice.setTitle(title);
 		notice.setContent(content);
+		
+		NoticeDao noticeDao = new OracleNoitceDao();
+		NoticeFileDao noticeFileDao = new OracleNoticeFileDao();
 		int result=0;
 	try {
+		 //Enterprise JavaBeans EJB ->트랜잭션처리 할수있는 것. 다오 대신 쓰는것. 복잡.
 	      result= noticeDao.insert(notice);
+	      int noticeId = noticeDao.getLastId();
+	      
+	      NoticeFile noticeFile = new NoticeFile();
+	      //noticeFile.setId(?);
+	      noticeFile.setName(fileName);
+	      noticeFile.setNoticeId(noticeId);
+	      
+	      noticeFileDao.insert(noticeFile);
+	      
 	} catch (ClassNotFoundException | SQLException e) {
 	      e.printStackTrace();
 	}
