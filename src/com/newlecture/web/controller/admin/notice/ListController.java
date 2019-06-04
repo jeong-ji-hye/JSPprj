@@ -1,4 +1,4 @@
-package com.newlecture.web.controller.notice;
+package com.newlecture.web.controller.admin.notice;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,7 +16,7 @@ import com.newlecture.web.dao.oracle.NoticeView;
 import com.newlecture.web.dao.oracle.OracleNoitceDao;
 import com.newlecture.web.entity.Notice;
 
-@WebServlet("/notice/list1")
+@WebServlet("/admin/notice/list1")
 public class ListController extends HttpServlet {
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -41,4 +41,23 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 	req.getRequestDispatcher("/WEB-INF/view/notice/list1.jsp").forward(req, resp);
 }
 
+@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		String title = req.getParameter("title");
+		
+		NoticeDao nd = new OracleNoitceDao();
+		Notice notice = nd.get(id);
+		notice.setTitle(title);
+		try {
+			nd.update(notice);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		resp.sendRedirect("list1");
+	}
 }

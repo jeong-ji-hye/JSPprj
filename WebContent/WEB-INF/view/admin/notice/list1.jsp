@@ -97,7 +97,7 @@
                     <nav>
             </section>
     </header> -->
-     <jsp:include page="../inc/header.jsp"/> 
+<%--     <jsp:include page="../inc/header.jsp"/> --%>
     </div>
     <!-- visual block -->
     <div id="visual">
@@ -142,7 +142,7 @@
                     </ul>
                 </nav>
             </aside> -->
- <jsp:include page="../inc/aside.jsp"/>
+ <jsp:include page="../../inc/aside.jsp"/>
             <main>
                 <section>
                 <h1>공지사항</h1>
@@ -170,6 +170,7 @@
 
                 <section id="notice">
                     <h3 class="d-none">공지사항 목록</h3>
+                    <form method="post" > //폼은 기본 메소드가 get임.
                     <table>
                         <thead>
                             <tr>
@@ -182,16 +183,38 @@
                         </thead>
                         <tbody>
                         <c:forEach var="n" items="${list}">
+                        <c:if test="${param.eid == n.id }">
                             <tr>
                                 <td class="num">${n.id}</td>
-                                <td class="title"><a href="detail?id=${n.id}">${n.title}</a></td>                          
+                                <td class="title">
+                                
+                                <input type="text" name="title" value="${n.title}">
+                                <span>[23]</span>
+                                <input type="hidden" name="id" value="${n.id}">
+                                <span><input type="submit" value="저장"></span>
+                                
+                                </td>
                                 <td class="writer">${n.writerId}</td>
                                 <td class="date">${n.regDate}</td>
                                 <td class="hit">${n.hit}</td>
                             </tr>
+                            </c:if>
+                            <c:if test="${param.eid != n.id }">
+                            <tr>
+                                <td class="num">${n.id}</td>
+                                <td class="title"><a href="detail?id=${n.id}">${n.title}</a>
+                                <span>[23]</span>
+                                <span><a href="list1?eid=${n.id}">수정</a><a href="">삭제</a></span>
+                                </td>
+                                <td class="writer">${n.writerId}</td>
+                                <td class="date">${n.regDate}</td>
+                                <td class="hit">${n.hit}</td>
+                            </tr>
+                            </c:if>
                              </c:forEach>
                         </tbody>
                     </table>
+                    </form>
                     <div>
                     	<a href="reg">글쓰기</a>
                     </div>
@@ -285,7 +308,7 @@
 </div> 
         </div>
     </footer> -->
-     <jsp:include page="../inc/footer.jsp"/>
+     <jsp:include page="../../inc/footer.jsp"/>
 </body>
 
 </html>

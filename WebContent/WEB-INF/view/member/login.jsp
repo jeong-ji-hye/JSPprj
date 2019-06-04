@@ -136,40 +136,45 @@
 
 			<main>
 			<section>
-				<h1>공지사항</h1>
+				<h1>로그인</h1>
 
 				<section id="breadcrumb">
 					<h3 class="d-none">경로</h3>
 					<ol>
 						<li>home</li>
-						<li>고객센터</li>
-						<li>공지사항</li>
+						<li>member</li>
+						<li>login</li>
 					</ol>
 				</section>
 				<section>
-					<form method="post" action="reg" enctype="multipart/form-data">
-						<h1>공지사항 내용</h1>
-						<table>
-							<tbody>
-								<tr>
-									<th>제목</th>
-									<td><input value="${notice.title}" name="title"></td>
-								</tr>
-								<tr>
-									<th>첨부파일</th>
-									<td><input type="file" name="file"></td>
-								</tr>
-								<tr>
-									<th>내용</th>
-									<td><textarea name="content"></textarea></td>
-								</tr>
+					<h1>로그인 폼</h1>
+					<table>
+						<tbody>
+							<tr>
+								<th>아이디</th>
+								<td><input type="text" name="id"></td>
+							</tr>
+							<tr>
+								<th>비밀번호</th>
+								<td><input type="password" name="pwd"></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input type="submit" value="로그인">
+							</tr>
 							</tbody>
-						</table>
-						<div>
-							<input type="submit" value="저장"> 
-							<a href="list1">취소</a>
-						</div>
-					</form>
+					</table>
+					<div>
+						<a href="edit?id=${notice.id}">수정</a> <a
+							href="del?id=${notice.id}">삭제</a>
+					</div>
+				</section>
+
+				<section>
+					<h1></h1>
+					<ul>
+						<li><a href="detail?id=${prev.id}"><span>이전글</span>${prev.title}</a></li>
+						<li><a href="detail?id=${next.id}"><span>다음글</span>${next.title}</a></li>
+					</ul>
 				</section>
 			</main>
 

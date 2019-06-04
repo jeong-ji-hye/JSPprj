@@ -147,43 +147,36 @@
 					</ol>
 				</section>
 				<section>
-					<h1>공지사항 내용</h1>
-					<table>
-						<tbody>
-							<tr>
-								<th>제목</th>
-								<td>${notice.title}</td>
-							</tr>
-							<tr>
-								<th>작성일</th>
-								<td>${notice.regDate}</td>
-							</tr>
-							<tr>
-								<th>첨부파일</th>
-								<td>
-								<c:forEach var="file" items="${noticeFiles}">
-								<a href="/upload/${file.name}" download>${file.name}</a>
-								</c:forEach>
-								</td>
-							</tr>
-							<tr>
-								<th>내용</th>
-								<td>${notice.content}</td>
-							</tr>
-						</tbody>
-					</table>
-					<div>
-						<a href="edit?id=${notice.id}">수정</a> <a
-							href="del?id=${notice.id}">삭제</a>
-					</div>
-				</section>
-
-				<section>
-					<h1></h1>
-					<ul>
-						<li><a href="detail?id=${prev.id}"><span>이전글</span>${prev.title}</a></li>
-						<li><a href="detail?id=${next.id}"><span>다음글</span>${next.title}</a></li>
-					</ul>
+					<form method="post" action="reg" enctype="multipart/form-data">
+						<h1>공지사항 내용</h1>
+						<table>
+							<tbody>
+								<tr>
+									<th>카테고리</th>
+									<td><select name="category">
+											<option vlaue="학습">학습</option>
+											<option vlaue="결제">결제</option>
+											<option vlaue="기타">기타</option>
+									</select></td>
+								</tr>
+								<tr>
+									<th>제목</th>
+									<td><input value="${notice.title}" name="title"></td>
+								</tr>
+								<tr>
+									<th>첨부파일</th>
+									<td><input type="file" name="file"></td>
+								</tr>
+								<tr>
+									<th>내용</th>
+									<td><textarea name="content"></textarea></td>
+								</tr>
+							</tbody>
+						</table>
+						<div>
+							<input type="submit" value="저장"> <a href="list1">취소</a>
+						</div>
+					</form>
 				</section>
 			</main>
 

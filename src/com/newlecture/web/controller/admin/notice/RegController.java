@@ -1,4 +1,4 @@
-package com.newlecture.web.controller.notice;
+package com.newlecture.web.controller.admin.notice;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -21,7 +21,7 @@ import com.newlecture.web.dao.oracle.OracleNoticeFileDao;
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.entity.NoticeFile;
 
-@WebServlet("/notice/reg")
+@WebServlet("/admin/notice/reg")
 //이것을 안하면 타이틀이 안읽어짐.
 @MultipartConfig(location = "D:\\temp", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, // 5메가
 		maxRequestSize = 1024 * 1024 * 5 * 5 // 5메가 5개까지

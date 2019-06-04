@@ -1,4 +1,4 @@
-package com.newlecture.web.controller.notice;
+package com.newlecture.web.controller.admin.notice;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.newlecture.web.dao.NoticeDao;
 import com.newlecture.web.dao.oracle.OracleNoitceDao;
 
-@WebServlet("/notice/del")
+@WebServlet("/admin/notice/del")
 public class DelController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
