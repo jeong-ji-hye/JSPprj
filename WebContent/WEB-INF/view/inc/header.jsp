@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <header id="header">
         <div class="content-box">
             <h1 id="logo">뉴렉처 온라인</h1>
@@ -28,7 +29,14 @@
                     <h1 class="d-none">회원메뉴</h1>
                     <ul>
                         <li>HOME</li>
-                        <li><a href="../member/login">로그인</a></li>
+                        <li>
+                        <c:if test="${not empty sessionScope.id}">
+                        <a href="/member/logout">로그아웃</a>
+                        </c:if>
+                         <c:if test="${empty sessionScope.id}">
+                        <a href="/member/login">로그인</a>
+                        </c:if>
+                        </li>
                       <!--   //인크루드는 상대경로로 들어가면안돼 헤더는 경로와 상관없이 아무데나 붙을수도 있자나 
                       		인덱스 페이지에도 헤더가 있자나 페이지마다 경로가 달라지기 때문에 상대경로로 가면안돼  -->
                         <li>회원가입</li>

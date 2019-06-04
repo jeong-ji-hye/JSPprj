@@ -9,31 +9,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-    /* NoticeDao noticeDao = new FileNoticeDao();
-    List<NoticeView> notices = noticeDao.getList();
-    //MVC
-/*     List<Notice> notices = new ArrayList<>(); */
-    //자바 프로그래밍의 입장
-    // 데이터를 제공하는 코드블록 -> data service Object:DAO
-    //List<Notice> getNoticeList(){
- /*    FileInputStream fis = new FileInputStream("D:\\java\\workspace\\JSPPrj\\WebContent\\WEB-INF\\data\\notice-file.df");
-    Scanner fscan = new Scanner(fis);
-    
-    String line = "";
-    
-    while(fscan.hasNextLine()){
-    line = fscan.nextLine();	
-   /*  line = line.replaceAll("^\\s+", ""); */
-   /*  Notice notice = new Notice(line.split(","));
-    notices.add(notice);
-    }
-    
-    fscan.close();
-    fis.close(); */ 
-    //여기까지가------
-    //} */
-    %>
+
 <!DOCTYPE html>
 <html lang="en" style="font-size: 10px">
 
@@ -47,48 +23,7 @@
 
 <body>
 
-
-	<header id="header">
-		<div class="content-box">
-			<h1 id="logo">뉴렉처 온라인</h1>
-			<section>
-				<h1 class="d-none">머릿말</h1>
-
-				<nav id="main-menu">
-					<h1 class="d-none">메인메뉴</h1>
-					<ul>
-						<li><a href="">학습가이드</a></li>
-						<li><a href="">강좌선택</a></li>
-						<li><a href="">AnswerIs</a></li>
-					</ul>
-				</nav>
-
-				<section id="lecture-search-form">
-					<h1 class="d-none">강좌검색 폼</h1>
-					<form>
-						<label>과정검색</label> <input type="text"> <input
-							type="submit" value="검색">
-					</form>
-				</section>
-
-				<nav id="member-menu">
-					<h1 class="d-none">회원메뉴</h1>
-					<ul>
-						<li>HOME</li>
-						<li>로그인</li>
-						<li>회원가입</li>
-					</ul>
-				</nav>
-
-				<nav id="direct-menu">
-					<h1 class="d-none">자주 사용하는 메뉴</h1>
-					<ul>
-						<li>마이페이지</li>
-						<li>고객센터</li>
-					</ul>
-					<nav>
-			</section>
-	</header>
+	 <jsp:include page="../inc/header.jsp"/> 
 	</div>
 	<!-- visual block -->
 	<div id="visual">

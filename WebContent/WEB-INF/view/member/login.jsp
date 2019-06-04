@@ -148,6 +148,12 @@
 				</section>
 				<section>
 					<h1>로그인 폼</h1>
+					<c:if test="${param.error==1}">
+					<div style="color:red">
+						아이디 또는 비밀번호가 유효하지 않습니다.
+					</div>
+					</c:if>
+					<form method="post">
 					<table>
 						<tbody>
 							<tr>
@@ -163,18 +169,7 @@
 							</tr>
 							</tbody>
 					</table>
-					<div>
-						<a href="edit?id=${notice.id}">수정</a> <a
-							href="del?id=${notice.id}">삭제</a>
-					</div>
-				</section>
-
-				<section>
-					<h1></h1>
-					<ul>
-						<li><a href="detail?id=${prev.id}"><span>이전글</span>${prev.title}</a></li>
-						<li><a href="detail?id=${next.id}"><span>다음글</span>${next.title}</a></li>
-					</ul>
+					</form>
 				</section>
 			</main>
 
