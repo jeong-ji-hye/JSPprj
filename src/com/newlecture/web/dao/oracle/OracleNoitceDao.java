@@ -260,4 +260,28 @@ int result = 0;
 		return id;
 	}
 
+	@Override
+	public int getCount() throws ClassNotFoundException, SQLException {
+		return getCount("title","");
+	}
+
+	@Override
+	public int getCount(String field, String query) throws ClassNotFoundException, SQLException {
+		int count = 0;
+		String sql = "SELECT count(id) count FROM NOTICE_VIEW" + 
+				" WHERE "+field+ " LIKE ?";
+		
+		String url = "jdbc:oracle:thin:@192.168.0.15:1521/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"newlec\"", "l4class");
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, "%"+query+"%");
+		
+		
+		ResultSet rs = st.executeQuery();
+		if(rs.next())
+			count=rs.getInt("count");
+		return count;
+	}
+
 }
