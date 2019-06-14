@@ -9,31 +9,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%
-    /* NoticeDao noticeDao = new FileNoticeDao();
-    List<NoticeView> notices = noticeDao.getList();
-    //MVC
-/*     List<Notice> notices = new ArrayList<>(); */
-    //자바 프로그래밍의 입장
-    // 데이터를 제공하는 코드블록 -> data service Object:DAO
-    //List<Notice> getNoticeList(){
- /*    FileInputStream fis = new FileInputStream("D:\\java\\workspace\\JSPPrj\\WebContent\\WEB-INF\\data\\notice-file.df");
-    Scanner fscan = new Scanner(fis);
     
-    String line = "";
-    
-    while(fscan.hasNextLine()){
-    line = fscan.nextLine();	
-   /*  line = line.replaceAll("^\\s+", ""); */
-   /*  Notice notice = new Notice(line.split(","));
-    notices.add(notice);
-    }
-    
-    fscan.close();
-    fis.close(); */ 
-    //여기까지가------
-    //} */
-    %>
     <!DOCTYPE html>
 <html lang="en" style="font-size:10px">
 
@@ -41,8 +17,6 @@
     <meta charset="UTF-8">
  	<mete name = "viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
-    <!-- 스타일 속성(X)-> 외부파일에 따로 두기. 불러옴. import방법도 있음.(로딩시간 걸릴수도있음.-->
-    <!-- <link rel="stylesheet" href="../CSS/reset.css" type="text/css"> -->
     <link rel="stylesheet" href="../CSS/style.css" type="text/css">
     <style>
     	#footer
@@ -97,7 +71,7 @@
                     <nav>
             </section>
     </header> -->
-<%--     <jsp:include page="../inc/header.jsp"/> --%>
+    <jsp:include page="../../inc/header.jsp"/> 
     </div>
     <!-- visual block -->
     <div id="visual">
