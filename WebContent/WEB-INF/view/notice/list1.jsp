@@ -48,6 +48,7 @@
 	width: 100px;
 }
 </style>
+<script src="../js/notice/list.js"></script>
 </head>
 
 <body>
@@ -166,6 +167,25 @@
 
 				<section id="notice">
 					<h3 class="d-none">공지사항 목록</h3>
+                    							<style>
+                    .even {
+                        background: #e9e9e9;
+                    }
+</style>
+<!-- 로우를 만들기위한 하나의 틀 왜 틀을 갖다놧지 레코드가 반드시 있어야하는데 없는경우도 
+    있기때문에 출력되지않음. 메모리에도 없음. 임폴트하면 메모리상에 있음. 저것을 객체로
+만들어서 이용함.-->
+        <template class="notice-template">
+            <tr>    
+                <td class="num"></td>
+                <td class="title">
+                    <a href="detail?id=${n.id}"></a>
+                </td>
+                <td class="writer"></td>
+                <td class="date"></td>
+                <td class="hit"></td>
+            </tr>
+        </template>
 					<table>
 						<thead>
 							<tr>
@@ -177,11 +197,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<style>
-.even {
-	background: #e9e9e9;
-}
-</style>
+
 							<c:forEach var="n" items="${list}" varStatus="v">
 								
 								<c:if test="${v.count%2==0}">
@@ -223,6 +239,16 @@
 					<span class="color-highlight font-bold">1</span> / 1 pages
 				</div>
 			</section>
+			<div id="test-remove">
+				<label>삭제할 게시글 ID</label><input type="text" value="">
+				<input type="button" value="삭제">
+            </div>
+
+            <div id="test-paper">
+                    <input class="txt" type="text">
+                    <input class="btn" type="button" value="요청">
+            </div>
+    
 
 			<c:set var="page" value="${(empty param.p)? 1:param.p}"/>
 			

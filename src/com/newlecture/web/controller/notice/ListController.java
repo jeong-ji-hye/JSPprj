@@ -27,24 +27,25 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 	if(p_!=null && !p_.equals(""))
 		page = Integer.parseInt(p_);
 	
-	int count = 0;
-	
-	//쿠기 읽어오기, 쿠기가 여러개이기 때문에 배열에 담아야함.
-	Cookie[] cookies = req.getCookies();
-	for(int i=0; i<cookies.length; i++) 
-		if(cookies[i].getName().equals("count")) {
-			count = Integer.parseInt(cookies[i].getValue());
-			System.out.println("cookie name:"+cookies[i].getName()+",value:"+cookies[i].getValue());
-			count++;
-			break;
-		}
-	
-	//쿠키저장
-	Cookie cookie = new Cookie("count",String.valueOf(count));
-	cookie.setMaxAge(10);//쿠키기록을 몇초까지 갖고있을건지
-	cookie.setPath("/member/");//쿠키값이 멤버라는 url에서만
-	resp.addCookie(cookie);
-	
+//	int count = 0;
+//	
+//	//쿠기 읽어오기, 쿠기가 여러개이기 때문에 배열에 담아야함.
+//	Cookie[] cookies = req.getCookies();
+//	for(int i=0; i<cookies.length; i++) {
+//		if(cookies[i].getName().equals("count")) {
+//			count = Integer.parseInt(cookies[i].getValue());
+//			System.out.println("cookie name:"+cookies[i].getName()+",value:"+cookies[i].getValue());
+//			break;
+//		}
+//	}
+//	count++;
+//	
+//	//쿠키저장
+//	Cookie cookie = new Cookie("count",String.valueOf(count));
+//	cookie.setMaxAge(10);//쿠키기록을 몇초까지 갖고있을건지
+//	cookie.setPath("/member/");//쿠키값이 멤버라는 url에서만
+//	resp.addCookie(cookie);
+//	
 	NoticeDao nd = new OracleNoitceDao();
 	
 	try {

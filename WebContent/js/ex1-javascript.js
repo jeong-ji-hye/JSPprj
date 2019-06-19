@@ -193,7 +193,8 @@ window.addEventListener("load",function(){
 window.addEventListener("load",function(){
     var section = document.querySelector("#ex7");
     var btnload = section.querySelector(".btn-load");
-    var noticeTbody =  section.querySelector(".notice tbody");
+    var noticeTbody =  section.querySelector(".notice tbody");;
+    var btn2 = section.querySelector(".btn2");;
     var notices = [
         {
             id:"6",
@@ -219,24 +220,59 @@ window.addEventListener("load",function(){
     ];
 
     //var string="";
+    // btn2.onclick=function(){
+    //     var request = new XMLHttpRequest();
+    //     request.open("GET","/notice/list1-ajax?p=1", false);
+    //     request.send();
+
+    //     var json = JSON.parse(request.responseText);//파싱하면 제이슨 객체가됨.
+  
+    //     json = json.concat(notices);
+    //     //방법3: 템플릿 문자열을 이용한 DOM조작
+    //     //var keys = Object.keys(notices[0]);
+    //     json.sort(function(a,b){
+    //         return a.id < b.id ? -1: a.id > b.id ? 1 : 0;
+    //     });
+    //     var keys = Object.keys(json[0]);
+    //     var html =[];
+    //     for(var j=0; j<json.length; j++){
+    //         html.push("<tr>");
+    //         for(var i=0; i<keys.length; i++)
+    //             html.push("<td>"+json[j][keys[i]]+"</td>");
+    //         html.push("</tr>");
+    //         }
+    //         //noticeTbody.innerHTML = html.toString();
+    //         noticeTbody.innerHTML += html.join("");//문자열을 더해주는것 join
+    // };
+
     btnload.onclick=function(){
         //데이터 요청하기
         var request = new XMLHttpRequest();
-        request.open("GET","data.txt", false);
+        request.open("GET","/notice/list1-ajax?p=1", false);
         request.send();
 
-        alert(request.responseText);
+        var json = JSON.parse(request.responseText);//파싱하면 제이슨 객체가됨.
+        //console.log(json[0].title);
+        //대체하기
+        //notice = json;
+        //누적하기
+        //notices = notices.concat(json);
+        json = json.concat(notices);
         //방법3: 템플릿 문자열을 이용한 DOM조작
-        var keys = Object.keys(notices[0]);
+        //var keys = Object.keys(notices[0]);
+        json.sort(function(a,b){
+            return a.id < b.id ? -1: a.id > b.id ? 1 : 0;
+        });
+        var keys = Object.keys(json[0]);
         var html =[];
-        for(var j=0; j<notices.length; j++){
+        for(var j=0; j<json.length; j++){
             html.push("<tr>");
-            for(var i=0; i<5; i++)
-                html.push("<td>"+notices[j][keys[i]]+"</td>");
+            for(var i=0; i<keys.length; i++)
+                html.push("<td>"+json[j][keys[i]]+"</td>");
             html.push("</tr>");
             }
             //noticeTbody.innerHTML = html.toString();
-            noticeTbody.innerHTML = html.join("");//문자열을 더해주는것 join
+            noticeTbody.innerHTML += html.join("");//문자열을 더해주는것 join
 
             //진협방법3
             // var str="";
@@ -296,6 +332,81 @@ window.addEventListener("load",function(){
     //         tr.append(td);
     //     }
     //     noticeTbody.append(tr);}
-        };
+
+    };
+
+});
+
+//-------------------------ex8 트리거 --------------------------------
+// 1. javascript
+// 2. DOM+CSSOM
+// 3. 이벤트 객체
+// 4. 애니메이션(only script, css animation)
+// 5. ajax
+// 6. 예제
+// 7. HTML5 API
+window.addEventListener("load", function(){
+    var section = document.querySelector("#ex8");
+    var fileButton = section.querySelector("input[type=file]");
+    var trigerButton = section.querySelector("input[type=button]");
     
+    trigerButton.onclick = function(e){
+        //alert("ok");
+
+        var event = new MouseEvent(
+            "click",
+            {
+                view:window,
+                bubbles:true,
+                cancelable:true
+            }
+        );
+
+        // 옛날 브라우저 방법
+        // var event = document.createEvent("MouseEvent");
+        // event.initEvent("click",true,true);
+
+        fileButton.dispatchEvent(event);
+    };
+});
+//-------------------------ex9 animation --------------------------------
+window.addEventListener("load",function(){
+    var section = document.querySelector("#ex9");
+    var startButton = section.querySelector(".start");
+    var stopButton = section.querySelector(".pause");
+    var ball = section.querySelector(".ball");
+    startButton.onclick=function(){
+        ball.style.transform = "rotate(45deg)";
+        // ball.style.left = "300px";
+        // ball.style.top = "300px";
+        //ball.style.width = "300px";
+        // // ball.style.left = "0px";
+        // // ball.style.top = "0px";
+        // //console.log(ball.style.left); //아무거도 안나옴.
+        // var ballStyle = getComputedStyle(ball);
+        // ball.style.left = ballStyle.getPropertyValue("left");
+        // ball.style.top = ballStyle.getPropertyValue("top");
+
+        // var tid =setInterval(function(){
+        //     // ball.style.left = "300px";
+        //     // ball.style.top = "300px";
+
+        //     var left = parseInt(ball.style.left);
+        //     var top = parseInt(ball.style.top);
+
+        //     left+=1;
+        //     top+=1;
+
+        //     ball.style.left = left+"px";
+        //     ball.style.top = top+"px";
+
+        //     if(left>=300)
+        //         clearInterval(tid);
+        // },17);
+       
+    };
+
+    stopButton.onclick=function(){
+        
+    };
 });
