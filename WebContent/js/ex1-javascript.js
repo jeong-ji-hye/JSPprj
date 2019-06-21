@@ -369,7 +369,7 @@ window.addEventListener("load", function(){
         fileButton.dispatchEvent(event);
     };
 });
-//-------------------------ex9 animation --------------------------------
+//-------------------------ex9 transition --------------------------------
 window.addEventListener("load",function(){
     var section = document.querySelector("#ex9");
     var startButton = section.querySelector(".start");
@@ -409,4 +409,138 @@ window.addEventListener("load",function(){
     stopButton.onclick=function(){
         
     };
+});
+//-------------------------ex10 animation --------------------------------
+window.addEventListener("load", function(){
+var section = document.querySelector("#ex10");
+var button = section.querySelector("input[type=button]");
+var dialog = section.querySelector(".dialog");
+// var X = section.querySelector(".buttons input[type=button]");
+var screen = section.querySelector(".screen");
+var content = section.querySelector(".content");
+button.onclick=function(){
+    //dialog.className +=" show";
+    dialog.classList.add("show");
+    //dialog.style.display ="block";
+   //setTimeout(function(){
+   // screen.style.opacity= 0.7;
+   //},10);
+};
+
+// X.onclick=function(){
+//     dialog.classList.remove("show");
+// };
+
+screen.onclick=function(){
+    dialog.classList.remove("show");
+   
+   
+};
+
+screen.addEventListener("transitionend",function(){
+    content.style.display="block";
+});
+});
+//-------------------------ex11 animation --------------------------------
+window.addEventListener("load", function(){
+    var section = document.querySelector("#ex11");
+    var delButton = section.querySelector(".del-button");
+    var box = section.querySelector(".box");
+
+    box.addEventListener("animationend", function(){
+        box.parentElement.remove();
+    });
+    delButton.onclick=function(){
+        box.classList.add("anl-slide-open");
+    };
+});
+//-------------------------ex12 animation --------------------------------
+window.addEventListener("load", function(){
+    var section = document.querySelector("#ex12");
+    var goButton = section.querySelector(".go-button");
+    var container = section.querySelector(".container");
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+
+    goButton.onclick=function(e){
+        //var boxes = container.querySelectorAll("div");
+        var boxes = container.children;
+
+        for(var i=0; i<boxes.length; i++){
+        boxes[i].style.left=getRandomInt(600)+"px";
+        boxes[i].style.top=getRandomInt(400)+"px";
+        }
+    };
+});
+//-------------------------ex13 캐러셀-----------------------------------
+window.addEventListener("load",function(){
+var section = document.querySelector("#ex13");
+var prevButton = section.querySelector(".prev-button");
+var nextButton = section.querySelector(".next-button");
+var imgList = section.querySelector(".img-list")
+var lis = imgList.children;
+
+prevButton.onclick=function(){
+    var centerLi = imgList.querySelector(".center");
+    var rightLi = imgList.querySelector(".right");
+    var leftLi = imgList.querySelector(".left");
+
+    leftLi.style["z-index"]="3";
+    centerLi.style["z-index"]="2";
+    rightLi.style["z-index"]="1";
+
+    centerLi.classList.remove("center");
+    centerLi.classList.add("right");
+
+    leftLi.classList.remove("left");
+    leftLi.classList.add("center");
+
+    setTimeout(function(){
+        rightLi.classList.remove("right");
+        rightLi.classList.add("left");
+        },100);
+};
+
+nextButton.onclick=function(){
+    var centerLi = imgList.querySelector(".center");
+    var rightLi = imgList.querySelector(".right");
+    var leftLi = imgList.querySelector(".left");
+
+    rightLi.style["z-index"]="3";
+    centerLi.style["z-index"]="2";
+    leftLi.style["z-index"]="1";
+
+    centerLi.classList.remove("center");
+    centerLi.classList.add("left");
+
+    rightLi.classList.remove("right");
+    rightLi.classList.add("center");
+    
+    setTimeout(function(){
+    leftLi.classList.remove("left");
+    leftLi.classList.add("right");
+    },100);
+};
+});
+//-------------------------ex14 콘텐츠-----------------------------------
+window.addEventListener("load",function(){
+var section = document.querySelector("#ex14");
+var tabLi = section.querySelector(".tab-menu-list");
+var conLi = section.querySelector(".content-list");
+//var contentDiv = conLi.querySelector("div");
+tabLi.onclick=function(e){
+   if(e.target.tagName !="A")
+        return;
+    e.target.preventDefault;
+   var contentId = e.target.href.split("#")[1];
+   
+   for(var i=0; i<conLi.children.length; i++)
+       //contentDiv.classList.remove("current");
+        conLi.children[i].classList.remove("current");
+   
+   var contentDiv = conLi.querySelector("#"+contentId);
+   contentDiv.classList.add("current");
+};
 });

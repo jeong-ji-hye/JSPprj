@@ -277,7 +277,267 @@
 	
 	
 	</script>
+	<!--탭콘텐츠 ex14-->
+	<section id="ex14">
+		<style>
+			#ex14 ul,
+			#ex14 li {
+				padding: 0px;
+				margin: 0px;
+			}
+		
+			#ex14 li {
+				list-style-type: none;
+			}
+
+			html{
+				scroll-behavior: smooth;
+			}
+			
+			#ex14 .d-none{
+				display: none;
+			}
+
+			#ex14 .current{
+				display: block;
+			}
+
+			#ex14 .tab-menu-list {	
+				display: flex;
+			}
+			#ex14 .tab-menu-list li{
+				border: 1px solid gray;
+				width: 100px;
+				height: 30px;
+			}
+			#ex14 .content-list div{
+				border: 1px solid gray;
+				width: 100%;
+				min-height: 500px;
+			}
+		</style>
+		<ul class="tab-menu-list">
+			<li><a href="#tab1">탭1</a></li>
+			<li><a href="#tab2">탭2</a></li>
+			<li><a href="#tab3">탭3</a></li>
+		</ul>
+		<div class="content-list">
+			<div id="tab1" class="d-none current">
+				<h2>1번 콘텐츠</h2>
+			</div>
+			<div id="tab2" class="d-none">
+				<h2>2번 콘텐츠</h2>
+			</div>
+			<div id="tab3" class="d-none">
+				<h2>3번 콘텐츠</h2>
+			</div>
+		</div>
+	</section>
+	<!--캐러셀 ex13-->
+	<section id="ex13">
+	<style>
+		#ex13 ul, #ex13 li{
+			padding: 0px;
+			margin: 0px;			
+		}
+		#ex13 li{
+			list-style-type: none;			
+		}
+		#ex13 img{
+			vertical-align: middle;
+		}
+		#ex13 .d-none{
+			display: none;
+		}
+		#ex13 .img-list{
+			display: flex;
+			width: 446px;
+			height: 156px;
+			border: 1px solid red;
+			overflow: hidden;
+			position: relative;
+		}
+		#ex13 .img-list li{
+			position: absolute;
+			top:0px;
+			transition: 1s;
+		}
+
+		#ex13 .img-list li.left{
+			left: -100%;
+		}
+		#ex13 .img-list li.center{
+			left: 0px;
+		}
+		#ex13 .img-list li.right{
+			left: 100%;
+		}
+	</style>
+		<h1 class="d-none">캐러셀</h1>
+		<ul class="img-list">
+			<li class="left"><img src="https://www.jhta.co.kr/data/banner/1511332719_73187713ac37c6c29186ef967ad05794.jpg"></li>
+			<li class="center"><img src="//www.jhta.co.kr/data/banner/1559723179_98b19fef89e671b80884f77a2ff91653.jpg"></li>
+			<li class="right"><img src="//www.jhta.co.kr/data/banner/1553233863_d40636f83553ba9b011b652294af52ae.jpg"></li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<div class="prev-button">이전</div>
+		<div class="next-button">다음</div>
+	</section>
+	<!-- animation ex12-->
+	<section id="ex12">
+			<style>
+				#ex12 .container {
+					width: 700px;
+					height: 500px;
+					background: yellow;
+					border: 1px solid gray;
+					position: relative;
+				}
+			
+				#ex12 .container>div {
+					width: 100px;
+					height: 100px;
+					border: 1px solid black;
+					background: #fff;
+					position: absolute;
+			
+					left: 0px;
+					top: 0px;
+					
+					transition: 500ms;
+				}
+			</style>			  
+		<div>
+			<input class="go-button" type="button" value="go">
+		</div>
+		<div class="container">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+	</section>
+	<!-- animation ex11-->
+	<section id="ex11">
+		<style>
+			@keyframes slide-open {
+				from {
+					transform: scale(1,1);
+				}
+				50%{
+					transform: rotate(180deg);
+				}
+				to {
+					transform: scale(2,2);
+				}
+			}
+		
+			.container {
+				width: 500px;
+				height: 300px;
+				border: 1px solid gray;
+				position: relative;
+			}
+		
+			.box {
+				width: 100px;
+				height: 100px;
+				background: blue;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				transform-origin: left top;
+			}
+			.anl-slide-open{
+				animation: slide-open 1s;
+				animation-iteration-count: 3;
+				animation-direction: alternate-reverse;
+			}
+		</style>
+			<div>
+				<input class="del-button" type="button" value="삭제">
+			</div>
+		<div class="container">
+			<div class="box"></div>
+		</div>
+	</section>
 	<!-- animation -->
+	<section id="ex10">
+		<div>
+			<input type="button" value="내용보기">
+		</div>
+		<div class="dialog fade-in">
+			<div class="screen"></div>
+			<div class="content">
+				안녕안녕안녕<br>
+				안녕안녕<br>
+				안녕<br>
+			</div>
+			<!-- <div class="buttons">
+				<input type="button" value="X">
+			</div> -->
+		</div>
+		<style>
+			.dialog{
+				display: block;
+				--height: 0px;
+				position: fixed;
+				left: 0px;
+				top: 0px;
+				height: 0%;
+				width: 100%;
+				z-index: 999;
+			}
+
+			.dialog .screen{
+				height: inherit;
+				width: inherit;
+				background: #000;
+				--opacity: 0;
+				--transition: 1s opacity;
+			}
+
+			.dialog .content{
+				position: fixed;
+				left: 30%;
+				top: 30%;
+				background: white;
+				--height: inherit;
+				--width: inherit;
+				display: none;
+			}
+			.dialog.show{
+				--display: block;
+				height: 100%;
+			}
+			.dialog.show .screen{
+				
+				opacity: 0.7;
+			}
+			.dialog.show .content{
+				
+				--display: block;
+			}
+			.fade-in{
+				transition: 1s opacity;
+			}
+			.fade-in.show{
+				opacity: 0.7;
+			}
+			/* .dialog.show .buttons{
+				position: fixed;
+				left: 30%;
+				top: 30%;
+				background: white;
+			} */
+		</style>
+	</section>
+	<!-- transition -->
 	<section id="ex9">
 		<style>
 			.stage{
